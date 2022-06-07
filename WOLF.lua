@@ -2775,9 +2775,9 @@ return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✧ عذرا البوت ليس �
 end
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
-if Redis:sismember(Fast.."ChekBotAdd",msg_chat_id) then
-if tonumber(Info_Chats.member_count) < tonumber((Redis:get(Fast..'Num:Add:Bot') or 0)) and not msg.ControllerBot then
-return LuaTele.sendText(msg_chat_id,msg_id,' ✧ عدد الاعضاء قليل لا يمكن تفعيل المجموعه  يجب ان يكوم اكثر من :'..Redis:get(Fast..'Num:Add:Bot'),"md",true)  
+if Redis:sismember(WOLF.."ChekBotAdd",msg_chat_id) then
+if tonumber(Info_Chats.member_count) < tonumber((Redis:get(WOLF..'Num:Add:Bot') or 0)) and not msg.ControllerBot then
+return LuaTele.sendText(msg_chat_id,msg_id,' ✧ عدد الاعضاء قليل لا يمكن تفعيل المجموعه  يجب ان يكوم اكثر من :'..Redis:get(WOLF..'Num:Add:Bot'),"md",true)  
 end
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تفعيلها مسبقا *',"md",true)  
 else
@@ -2817,8 +2817,8 @@ data = {
 }
 LuaTele.sendText(Sudo_Id,0,'*\n ✧ تم تفعيل مجموعه جديده \n ✧ من قام بتفعيلها〘 *['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')* 〙\n ✧ معلومات المجموعه -› \n ✧ عدد الاعضاء -› '..Info_Chats.member_count..'\n ✧ عدد الادمنيه -› '..Info_Chats.administrator_count..'\n ✧ عدد المطرودين -› '..Info_Chats.banned_count..'\n✧ عدد المقيدين -› '..Info_Chats.restricted_count..'*',"md",true, false, false, false, reply_markup)
 end
-Redis:sadd(Fast.."ChekBotAdd",msg_chat_id)
-Redis:set(Fast.."Status:Id"..msg_chat_id,true) ;Redis:set(Fast.."Status:Reply"..msg_chat_id,true) ;Redis:set(Fast.."Status:ReplySudo"..msg_chat_id,true) ;Redis:set(Fast.."Status:BanId"..msg_chat_id,true) ;Redis:set(Fast.."Status:SetId"..msg_chat_id,true) 
+Redis:sadd(WOLF.."ChekBotAdd",msg_chat_id)
+Redis:set(WOLF.."Status:Id"..msg_chat_id,true) ;Redis:set(WOLF.."Status:Reply"..msg_chat_id,true) ;Redis:set(WOLF.."Status:ReplySudo"..msg_chat_id,true) ;Redis:set(WOLF.."Status:BanId"..msg_chat_id,true) ;Redis:set(WOLF.."Status:SetId"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تفعيل المجموعه *','md', true, false, false, false, reply_markup)
 end
 end 
@@ -2837,14 +2837,14 @@ end
 if AddedBot == false then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✧ عذرا انته لست ادمن او مالك المجموعه *","md",true)  
 end
-if not Redis:get(Fast.."BotFree") then
+if not Redis:get(WOLF.."BotFree") then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✧ الوضع الخدمي تم تعطيله من قبل مطور البوت *","md",true)  
 end
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
-if Redis:sismember(Fast.."ChekBotAdd",msg_chat_id) then
-if tonumber(Info_Chats.member_count) < tonumber((Redis:get(Fast..'Num:Add:Bot') or 0)) and not msg.ControllerBot then
-return LuaTele.sendText(msg_chat_id,msg_id,' ✧ عدد الاعضاء قليل لا يمكن تفعيل المجموعه  يجب ان يكوم اكثر من :'..Redis:get(Fast..'Num:Add:Bot'),"md",true)  
+if Redis:sismember(WOLF.."ChekBotAdd",msg_chat_id) then
+if tonumber(Info_Chats.member_count) < tonumber((Redis:get(WOLF..'Num:Add:Bot') or 0)) and not msg.ControllerBot then
+return LuaTele.sendText(msg_chat_id,msg_id,' ✧ عدد الاعضاء قليل لا يمكن تفعيل المجموعه  يجب ان يكوم اكثر من :'..Redis:get(WOLF..'Num:Add:Bot'),"md",true)  
 end
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘*['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تفعيلها مسبقا *',"md",true)  
 else
@@ -2884,15 +2884,15 @@ data = {
 },
 }
 }
-Redis:sadd(Fast.."ChekBotAdd",msg_chat_id)
-Redis:set(Fast.."Status:Id"..msg_chat_id,true) ;Redis:set(Fast.."Status:Reply"..msg_chat_id,true) ;Redis:set(Fast.."Status:ReplySudo"..msg_chat_id,true) ;Redis:set(Fast.."Status:BanId"..msg_chat_id,true) ;Redis:set(Fast.."Status:SetId"..msg_chat_id,true) 
+Redis:sadd(WOLF.."ChekBotAdd",msg_chat_id)
+Redis:set(WOLF.."Status:Id"..msg_chat_id,true) ;Redis:set(WOLF.."Status:Reply"..msg_chat_id,true) ;Redis:set(WOLF.."Status:ReplySudo"..msg_chat_id,true) ;Redis:set(WOLF.."Status:BanId"..msg_chat_id,true) ;Redis:set(WOLF.."Status:SetId"..msg_chat_id,true) 
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تفعيل المجموعه *','md', true, false, false, false, reply_markup)
 end
 end
 if text == 'تعطيل' and msg.Developers then
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
-if not Redis:sismember(Fast.."ChekBotAdd",msg_chat_id) then
+if not Redis:sismember(WOLF.."ChekBotAdd",msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تعطيلها مسبقا *',"md",true)  
 else
 if not msg.ControllerBot then
@@ -2911,7 +2911,7 @@ data = {
 }
 LuaTele.sendText(Sudo_Id,0,'*\n ✧ تم تعطيل مجموعه جديده \n ✧ من قام بتعطيلها〘 *['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')* 〙\n ✧ معلومات المجموعه -› \n ✧ عدد الاعضاء -› '..Info_Chats.member_count..'\n ✧ عدد الادمنيه -› '..Info_Chats.administrator_count..'\n ✧ عدد المطرودين -› '..Info_Chats.banned_count..'\n✧ عدد المقيدين -› '..Info_Chats.restricted_count..'*',"md",true, false, false, false, reply_markup)
 end
-Redis:srem(Fast.."ChekBotAdd",msg_chat_id)
+Redis:srem(WOLF.."ChekBotAdd",msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه : {*['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')*}\n ✧ تم تعطيلها بنجاح *','md',true)
 end
 end
@@ -2929,7 +2929,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,"\n* ✧ عذرا انته لست ا�
 end
 local Get_Chat = LuaTele.getChat(msg_chat_id)
 local Info_Chats = LuaTele.getSupergroupFullInfo(msg_chat_id)
-if not Redis:sismember(Fast.."ChekBotAdd",msg_chat_id) then
+if not Redis:sismember(WOLF.."ChekBotAdd",msg_chat_id) then
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تعطيلها مسبقا *',"md",true)  
 else
 if not msg.ControllerBot then
@@ -2948,7 +2948,7 @@ data = {
 }
 LuaTele.sendText(Sudo_Id,0,'*\n ✧ تم تعطيل مجموعه جديده \n ✧ من قام بتعطيلها〘 *['..UserInfo.first_name..'](tg://user?id='..msg.sender.user_id..')* 〙\n ✧ معلومات المجموعه -› \n ✧ عدد الاعضاء -› '..Info_Chats.member_count..'\n ✧ عدد الادمنيه -› '..Info_Chats.administrator_count..'\n ✧ عدد المطرودين -› '..Info_Chats.banned_count..'\n ✧ عدد المقيدين -› '..Info_Chats.restricted_count..'*',"md",true, false, false, false, reply_markup)
 end
-Redis:srem(Fast.."ChekBotAdd",msg_chat_id)
+Redis:srem(WOLF.."ChekBotAdd",msg_chat_id)
 return LuaTele.sendText(msg_chat_id,msg_id,'\n* ✧ المجموعه〘 *['..Get_Chat.title..']('..Info_Chats.invite_link.invite_link..')* 〙\n ✧ تم تعطيلها بنجاح *','md',true)
 end
 end
